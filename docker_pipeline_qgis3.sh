@@ -51,39 +51,10 @@ mkdir "models"
 
 cp $MODEL_PATH "models/"
 
-# wget https://github.com/nuest/docker-qgis-model/archive/master.zip
-# unzip master.zip
-# rm -R master.zip
-# cp -R docker-qgis-model-master/ubuntu $PWD
-# rm -R docker-qgis-model
-# docker build -t docker-qgis-model:trusty -f ubuntu/trusty/Dockerfile ubuntu/.
-# docker run --rm -it -v $PWD/:/workspace qgis-model-ubuntu:trusty
+
 mkdir -p "QGIS_results"
 
 mkdir "QGIS_results/$CURRENT_DATE_TIME"
 
 docker run --name test_qgis3_model -it --rm -v $PWD:/data/input -v "$PWD/QGIS_results/$CURRENT_DATE_TIME":/data/output  ismailsunni/qgis3-model /bin/bash start.sh 'Ortho-DroneMapper.tif' 'Ortho-DroneMapper_ndvi.tif'
 
-
-# docker run --name qgis_example_hub -v $PWD/:/workspace nuest/docker-qgis-model:trusty
-# docker cp qgis_example_hub:/workspace/results QGIS_results
-# tree QGIS_results
-# docker rm qgis_example_hub
-
-# REM Fetching copy of odm_orthophoto.tif
-# @echo off
-# cd ..
-# copy odm_orthophoto.tif QGIS_NDVI
-# cd QGIS_NDVI
-# echo on
-# REM Calculating NDVI now
-# docker build -t sholtkamp/qgis:1.0 . --no-cache
-# docker run --name=QGIS sholtkamp/qgis:1.0
-# REM Making the results accessable in the QGIS\results folder
-# @docker cp QGIS:/results %~dp0 >nul
-# @xcopy %~dp0results\* %~dp0..\results /s/h/e/k/f/c
-# REM Cleaning up workspace
-# @docker rm QGIS >nul
-# @del odm_orthophoto.tif
-# @rmdir results /S /Q >nul
-# REM Cleanup done
