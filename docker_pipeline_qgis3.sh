@@ -3,8 +3,10 @@ set -e
 echo "Welcome to ODM docker."
 PICTURE_SOURCE_DIR=$1
 RESULT_DIR=$2
-MODEL_PATH=$3
-MODEL_PYTHON_PATH=$4
+# MODEL_PATH=$3
+# MODEL_PYTHON_PATH=$4
+# GCPPATH=$5
+
 
 # Change directory to result directory
 cd $RESULT_DIR
@@ -43,13 +45,13 @@ rm -R "working_dir"
 mkdir "results/QGIS"
 
 cp "results/odm_orthophoto/odm_orthophoto.tif" "results/QGIS/Ortho-DroneMapper.tif"
-cp  $MODEL_PYTHON_PATH "results/QGIS/"
+# cp  $MODEL_PYTHON_PATH "results/QGIS/"
 
 cd "results/QGIS"
 
-mkdir "models"
+# mkdir "models"
 
-cp $MODEL_PATH "models/"
+# cp $MODEL_PATH "models/"
 
 
 mkdir -p "QGIS_results"
