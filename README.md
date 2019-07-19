@@ -12,3 +12,6 @@ chmod +x UAS_Workflow.sh
 The first command changes the current directory of command line to the directory where the script is located. Therefore, the path needs to be specified according to the users particular device. The second line is only necessary once before the first execution of the script file.
 
 It allows executing the script file as a program. Finally the third line executes the script. As previously mentioned, path to input images and result path are required as parameters. For detailed information on the execution commands within the script comments can be found in the script file.
+
+
+The folder `Edited` can be used for testing purposes. It includes a set of UAV images from Muenster, Germany.
